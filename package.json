@@ -1,0 +1,23 @@
+{
+  "name": "cart",
+  "version": "1.0.0",
+  "description": "vue购物车",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dreamanddream/vueCart.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dreamanddream/vueCart/issues"
+  },
+  "homepage": "https://github.com/dreamanddream/vueCart#readme",
+  "dependencies": {
+    "vue": "^2.5.16",
+    "vue-resource": "^1.5.0"
+  }
+}
