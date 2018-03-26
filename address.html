@@ -6,9 +6,9 @@
     <meta content="IE=dege,chrom=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
     <title>Cart</title>
-    <link href="CSS/base.css" rel="stylesheet">
-    <link href="CSS/checkout.css" rel="stylesheet">
-    <link href="CSS/modal.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/checkout.css" rel="stylesheet">
+    <link href="css/modal.css" rel="stylesheet">
     <style type="text/css">
         .quentity input {
             width: 40px;
@@ -63,8 +63,8 @@
           <div class="addr-list-wrap">
             <div class="addr-list">
               <ul>
-                <!-- v-for="(item, index) in filterAddress" :class="{'check': index == currentIndex}" @click="currentIndex=index" -->
-                <li v-for="(item, index) in filterAddress">
+                <!-- 根据索引和当前项比较，判断选中状态，这个是以后项目中常用到的。每个数组都有一个index，当点击哪个传递index给当前值，结果为ture就加上check类，从而显示样式 -->
+                <li v-for="(item, index) in filterAddress" :class="{'check': index == currentIndex}" @click="currentIndex=index">
                   <dl>
                     <!-- {{item.userName}} -->
                     <dt>{{ item.userName }}</dt>
@@ -87,7 +87,7 @@
                   <!-- 凡是没有出现默认地址的，都应该显示设为默认按钮，同样使用v-if进行判断 -->
                   <div class="addr-opration addr-set-default" v-if="!item.isDefault">
                     <!-- @click="setDefault(item.addressId)" -->
-                    <a href="javascript:;" class="addr-set-default-btn" ><i>设为默认</i></a>
+                    <a href="javascript:;" class="addr-set-default-btn" @click="setDefault(item.addressId)"><i>设为默认</i></a>
                   </div>
                   <!-- 根据请求的json文件中isDefault的布尔值情况判断是否出现默认地址，一般整个地址系统中只有一个默认地址-->
                   <div class="addr-opration addr-default" v-if="item.isDefault">默认地址</div>
@@ -105,8 +105,8 @@
             </div>
 
             <div class="shipping-addr-more">
-              <!-- @click="limitNum=addressList.length" -->
-              <a class="addr-more-btn up-down-btn" href="javascript:" >
+              <!-- @click="limitNum=addressList.length" @click中可以使用表达式，不用加this-->
+              <a class="addr-more-btn up-down-btn" href="javascript:" @click="loadMore">
                 more
                 <i class="i-up-down">
                   <i class="i-up-down-l"></i>
